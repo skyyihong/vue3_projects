@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue demo</title>
+
+    <style>
+        .change_red {
+        color:red
+      }
+      .change_blue {
+        color: blue
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 对于class绑定的是对象，key表示类名，value必须为boolen类型，true表示类存在,false表示不添加这个类 -->
+      <h2 :class="{change_red:isActive}">我要变红色了</h2>  
+      <button @click="changeToRed">变红色切换</button>
+      <!-- 对于class绑定的是数组，数组每个元素的值为类名-->
+      <h2 :class="[change_blue]">我要变蓝色了</h2>  
+      <button @click="changeToBlue">变蓝色切换</button>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data: () => {
+        return {
+          name: `<span style="color:red">1111</span>`,
+          isActive:false,
+          change_blue:"change_blue"
+        }
+      },
+      methods: {
+        changeToRed(){
+          this.isActive=!this.isActive
+        },
+        changeToBlue(){
+          this.change_blue=(this.change_blue==="change_blue" ? "":"change_blue")
+        }
+      },
+    })
+    //挂着
+    app.mount('#app')
+    
+  </script>
+</html>

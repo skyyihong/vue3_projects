@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue demo</title>
+
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 对象形式：key为style为的属性，key的值为变量的值 -->
+      <h2 :style="{color:isActive}">我要变红色了</h2>
+      <!-- 可以使用整个对象都是变量的形式 -->
+      <h2 :style="objsytle">我要变红色了</h2>
+      <!-- 数组的形式为多个对象的集合 -->
+      <h2 :style="[objsytle,objsytle1]">我要变红色了</h2>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data: () => {
+        return {
+          name: `<span style="color:red">1111</span>`,
+          isActive: 'red',
+          objsytle: {
+            color: 'blue',
+          },
+          objsytle1: {
+            backgroundColor: 'red',
+          },
+        }
+      },
+      methods: {},
+    })
+    //挂着
+    app.mount('#app')
+  </script>
+</html>

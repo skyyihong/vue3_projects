@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue demo</title>
+  </head>
+  <body>
+    <div id="app">
+      
+      <ul v-memo='[info.name]'> /*定义需要监控改变值的数组，即只有info.name的值变化了，才更新显示所有内容。其他值如果有改变，显示也不做更新*/
+        <li>{{info.name}}</li>
+        <li>{{info.age}}</li>
+        <li>{{info.height}}</li>
+      </ul>
+      <button @click="changeName">改变name</button>  
+      <button @click="changeAge">改变age</button>  
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data: () => {
+        return {
+          info: {
+            name:"hongyan",
+            age:18,
+            height:188
+          },
+        }
+      },
+      methods: {
+        changeName(){
+          this.info.name="鸿雁"
+        },
+        changeAge(){
+          this.info.age=28
+          console.log(28)
+        }
+      },
+    })
+    //挂着
+    app.mount('#app')
+    
+  </script>
+</html>

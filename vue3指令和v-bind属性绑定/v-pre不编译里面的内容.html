@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue demo</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2 v-pre>{{name}}
+        <span>{{name}}</span>
+      </h2>  //标签子代元素里的变量都不会被编译
+
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data: () => {
+        return {
+          name: `<span style="color:red">1111</span>`,
+        }
+      },
+      methods: {
+        changeName(){
+          this.name=``
+        }
+      },
+    })
+    //挂着
+    app.mount('#app')
+    
+  </script>
+</html>

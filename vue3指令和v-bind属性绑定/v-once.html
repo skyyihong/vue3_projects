@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue demo</title>
+  </head>
+  <body>
+    <div id="app">
+      //标签属性的v-once指令会是标签和子代标签只渲染一次,后面各类值变化,不再改变
+      <h2 v-once>name:{{name}} 点击按钮我名字不会改变</h2>
+      <h2 >name:{{name}} 点击按钮我名字会改变</h2>
+      <button @click="changeName">点击改变名字</button>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data: () => {
+        return {
+          name: 'hongyan',
+        }
+      },
+      methods: {
+        changeName(){
+          this.name="鸿雁"
+        }
+      },
+    })
+    //挂着
+    app.mount('#app')
+    
+  </script>
+</html>

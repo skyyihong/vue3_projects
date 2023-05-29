@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue demo</title>
+
+    <style>
+        .change_red {
+        color:red
+      }
+      .change_blue {
+        color: blue
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 直接将一个手对象绑定给v-bind，这样会遍历成 class="change_red" dataset="18"等独立的属性 -->
+      <h2 :="obj">我要变红色了</h2>  
+
+
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data: () => {
+        return {
+          name: `<span style="color:red">1111</span>`,
+          obj:{
+            class:"change_red",
+            dataSet:18
+          }
+        }
+      },
+      methods: {
+
+      },
+    })
+    //挂着
+    app.mount('#app')
+    
+  </script>
+</html>

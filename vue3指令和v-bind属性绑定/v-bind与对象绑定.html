@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue demo</title>
+
+    <style>
+      .change_red {
+        color: red;
+      }
+      .change_blue {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- [name]表示属性是未知的，通过变量name来赋值。 -->
+      <h2 :[name]="{change_red:isActive}">我要变红色了</h2>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data: () => {
+        return {
+          name: `class`,
+          isActive: 'red',
+        }
+      },
+      methods: {},
+    })
+    //挂着
+    app.mount('#app')
+  </script>
+</html>
