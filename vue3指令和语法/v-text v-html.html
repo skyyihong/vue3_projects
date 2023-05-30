@@ -8,10 +8,9 @@
   </head>
   <body>
     <div id="app">
-      <h2 >{{name}}</h2>  
+      <h2>{{name}}</h2>
       <h2 v-text="name"></h2>
       <h2 v-html="name"></h2>
-
     </div>
   </body>
   <script src="https://unpkg.com/vue@next"></script>
@@ -23,13 +22,12 @@
         }
       },
       methods: {
-        changeName(){
-          this.name=``
-        }
+        changeName() {
+          this.name = ``
+        },
       },
     })
     //挂着
     app.mount('#app')
-    
   </script>
 </html>

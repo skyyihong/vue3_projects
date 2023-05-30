@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue demo</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>name:{{fullname}}</h1>
+      <button @click="changeName">修改名字</button>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data: () => {
+        return {
+          firstName: 'hong',
+          lastName: 'yan',
+        }
+      },
+      computed: {
+        // 这种写法是computed属性中get的方法的语法糖
+        fullname() {
+          return this.firstName + ' ' + this.lastName
+        },
+        fullName: {
+          get() {
+            return this.firstName + ' ' + this.lastName
+          },
+          //可以对计算属性进行赋值
+          set(newValue) {
+            this.firstName = ''
+            this.lastName = newValue
+          },
+        },
+      },
+      methods: {
+        changeName() {
+          this.fullName = '鸿雁'
+        },
+      },
+    })
+    //挂着
+    app.mount('#app')
+  </script>
+</html>
+<!-- 对于复杂属性的计算官方推荐使用computed属性，因为计算属性有缓存，只要监听的值不变，多次获取计算属性，不会重新计算获取 -->

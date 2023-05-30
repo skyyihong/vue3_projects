@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue demo</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>name:{{ name.name }}</h1>
+      <button @click="changeName">改变名字</button>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data: () => {
+        return {
+          name: {
+            name: 'hongyan',
+          },
+        }
+      },
+      methods: {
+        changeName() {
+          this.name.name = '鸿雁'
+        },
+      },
+      watch: {
+        // 这种函数的表示是语法糖
+        // name(newValue, oldValue) {
+        //   console.log(newValue, oldValue)
+        // },
+
+        // watch的每个监听的属性
+        name: {
+          handler(newValue, oldValue) {
+            console.log(newValue, oldValue)
+            //newValue, oldValue都为proxy对象，如果想要获得原始的属性对象的话可以有两种方法：
+            //第一种：
+            console.log({ ...newValue })
+            //第二种：
+            console.log(Vue.toRaw(newValue))
+          },
+          //为对象做深度监听
+          deep: true,
+          //页面第一次加载时，先执行一次handler的函数
+          immediate: true,
+        },
+        //如果只想监听某个对象里单独属性，可以用一下写法
+        'name.name': function (newValue, oldValue) {
+          console.log(newValue, oldValue)
+        },
+      },
+    })
+    //挂着
+    app.mount('#app')
+  </script>
+</html>
