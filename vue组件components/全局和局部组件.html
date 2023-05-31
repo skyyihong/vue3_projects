@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue demo</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>name:{{name}}</h1>
+      <my-hobby1> </my-hobby1>
+      <hr />
+      <my-hobby2></my-hobby2>
+    </div>
+
+    <template id="hobby1">hobby1 components </template>
+
+    <template id="hobby2">
+      <div>hobby2 components start</div>
+
+      <my-hobby1> </my-hobby1>
+
+      <my-hobby3></my-hobby3>
+      <div>hobby2 components end</div>
+    </template>
+
+    <template id="hobby3">hobby3 components </template>
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const myhobby3 = {
+      template: '#hobby3',
+      data() {
+        return {
+          name: 'hobby3',
+        }
+      },
+    }
+
+    const app = Vue.createApp({
+      data: () => {
+        return {
+          name: '',
+        }
+      },
+      methods: {},
+    })
+    //全局注册一个组件,my-hobby1和my-hobby2都是全局组件，my-hobby2的template里面还使用了my-hobby1组件
+    app.component('my-hobby1', {
+      template: '#hobby1',
+      data() {
+        return {
+          name: 'hobby1',
+        }
+      },
+    })
+    app.component('my-hobby2', {
+      template: '#hobby2',
+      data() {
+        return {
+          name: 'hobby2',
+        }
+      },
+      //在my-hobby2里面注册了my-hobby3，那么my-hobby3只能在my-hobby2组件里面使用
+      components: {
+        'my-hobby3': myhobby3,
+      },
+    })
+
+    //挂着
+    app.mount('#app')
+  </script>
+</html>
