@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue demo</title>
+  </head>
+  <body>
+    <div id="app">
+      <!--  number 只允许输入数字-->
+      <input type="number" v-model.number="num" /> {{num}} type:{{typeof num}}
+      <!-- lazy 会使焦点丢失和按回车键 才做数据绑定 -->
+      <input type="text" v-model.lazy="lazy1" /> {{lazy1}} type:{{typeof lazy1}}
+      <!-- trim可以去除前后字符的空格 -->
+      <input type="text" v-model.trim="trim1" /> {{trim1}} type:{{typeof trim1}}
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data: () => {
+        return {
+          name: '',
+          num: 0,
+          trim1: '',
+          lazy1: '',
+        }
+      },
+      methods: {},
+    })
+    //挂着
+    app.mount('#app')
+  </script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue demo</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>name:{{name}}</h2>
+      <input ref="inpt" type="text" v-model="name" />
+      <hr />
+      <h2>{{text}}</h2>
+      <textarea name="" id="" cols="30" rows="10" v-model="text"></textarea>
+      <hr />
+      <h2>单选框</h2>
+      <!-- v-model的属性为boolean值 -->
+      <label for="agree"> <input type="checkbox" id="agree" v-model="checked" />同意 </label>
+      <hr />
+      <h2>多选框</h2>
+      <div>
+        <!-- 多选框通过value属性来区分每个项目，v-model为数组，数组里面的值为选中value的值 -->
+        请选择你的爱好：
+        <label for="sing">
+          <input type="checkbox" id="sing" value="sing" v-model="multiChecked" />sing
+        </label>
+        <label for="run">
+          <input type="checkbox" id="run" value="run" v-model="multiChecked" /> run</label
+        >
+      </div>
+      <hr />
+      <h2>radio</h2>
+      <!-- radio类型通过相同的name属性来确定两个选项的关联，v-model绑定的变量名用一样 -->
+      <label for="male">
+        <input id="male" type="radio" name="gender" value="male" v-model="gender" />男
+      </label>
+      <label for="female">
+        <input id="female" type="radio" name="gender" value="female" v-model="gender" />女
+      </label>
+      <hr />
+
+      <h2>单选select</h2>
+      <label for="cars">Choose a car:</label>
+      <!-- v-model为字符串，字符串的值为选中value的值 -->
+      <select id="cars" v-model="singleOption">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="vw">VW</option>
+        <option value="audi">Audi</option>
+      </select>
+      <hr />
+      <h2>多项单选select</h2>
+      <!-- v-model为数组，数组里的值为多个选中value的值  multiple属性确定为多项-->
+      <select multiple size="4" style="width: 60px" v-model="multiOption">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+      </select>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data: () => {
+        return {
+          name: 'hello world!',
+          text: 'textarea',
+          checked: false,
+          singleOption: 'saab',
+          multiOption: ['audi', 'opel'],
+          multiChecked: [],
+          gender: '',
+        }
+      },
+      computed: {},
+      methods: {},
+      watch: {},
+    })
+    //挂着
+    app.mount('#app')
+  </script>
+</html>
