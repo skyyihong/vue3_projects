@@ -1,118 +1,19 @@
-<!DOCTYPE html>
-<html lang="zh_CN">
-  <head>
-    <meta charse="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vue demo</title>
-    <style>
-      body {
-        box-sizing: border-box;
+<template>vue3 component</template>
+
+<script>
+  export default {
+    emit: [],
+    props: {},
+    computed: {},
+    data() {
+      return {
+        name: '',
       }
-      table {
-        border-collapse: collapse;
-        /* border: 1px solid #aaa; */
-      }
-      th,
-      td {
-        border: 1px solid black;
-        padding: 2px 20px;
-        text-align: center;
-      }
-      th {
-        background-color: #eee;
-      }
-      /* .title_id {
-        width: 120px;
-      } */
-      .bookcount {
-        margin: 0 5px;
-        line-height: 18px;
-        width: 20px;
-        display: inline-block;
-        font-size: 8px;
-        text-align: center;
-      }
-      button {
-        /* display: flex; */
-        height: 18px;
-        line-height: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-      <table>
-        <thead>
-          <tr>
-            <th class="title_id">id</th>
-            <th>书籍名称</th>
-            <th>出版日期</th>
-            <th>价格</th>
-            <th>购买数量</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(item,index) in booklists" :key="item.id">
-            <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.date}}</td>
-            <td><span>￥</span>{{item.price}}</td>
-            <td>
-              <button :disabled="item.count===1?true : false" @click="subbtn(index)">-</button>
-              <span class="bookcount">{{item.count}}</span>
-              <button :disabled="item.count===99?true : false" @click="addbtn(index)">+</button>
-            </td>
-            <td>
-              <button @click="delBook(index)">移出</button>
-            </td>
-          </tr>
-          <tr>
-            <td>总价：</td>
-            <td>{{sum}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </body>
-  <script src="https://unpkg.com/vue@next"></script>
-  <script>
-    const app = Vue.createApp({
-      data: () => {
-        return {
-          booklists: [
-            { id: 1, name: '算法导论', date: '2006-9', price: 85, count: 1 },
-            { id: 2, name: '算法导论', date: '2006-9', price: 85, count: 2 },
-            { id: 3, name: '算法导论', date: '2006-9', price: 85, count: 38 },
-            { id: 4, name: '算法导论', date: '2006-9', price: 1885, count: 98 },
-            { id: 5, name: '算法导论', date: '2006-9', price: 85, count: 1 },
-          ],
-        }
-      },
-      computed: {
-        sum() {
-          let sum = 0
-          this.booklists.forEach((item) => {
-            sum += item.price * item.count
-          })
-          return sum
-        },
-      },
-      methods: {
-        subbtn(id) {
-          this.booklists[id].count--
-        },
-        addbtn(id) {
-          this.booklists[id].count++
-        },
-        delBook(id) {
-          console.log('del')
-          this.booklists.splice(id, 1)
-        },
-      },
-    })
-    //挂着
-    app.mount('#app')
-  </script>
-</html>
+    },
+    methods: {},
+    watch: {},
+    created() {},
+  }
+</script>
+
+<style scoped></style>

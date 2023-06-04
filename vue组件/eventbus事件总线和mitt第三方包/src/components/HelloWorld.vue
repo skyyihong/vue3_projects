@@ -21,6 +21,9 @@ export default {
   methods: {
     btnCLick() {
       eventbus.emit('click', 18) //发出事件调用
+      console.log(this.$el)
+      console.log(this.$parent)
+      console.log(this.$root.$el)
     },
   },
 }
