@@ -6,7 +6,12 @@
     <hr />
     <slot name="father1" myage="18">我是father1默认插槽内容</slot>
     <hr />
-    <sonComponent :age="18" :info="{ name: 'hy', age: '18' }" @clickson="clickson"></sonComponent>
+    <sonComponent
+      :age="18"
+      :info="{ name: 'hy', age: '18' }"
+      @clickson="clickson($event)"
+    ></sonComponent>
+    //$event 为emit传过来的参数
   </div>
 </template>
 
@@ -25,8 +30,8 @@ export default {
     }
   },
   methods: {
-    clickson() {
-      console.log('father vue')
+    clickson(event) {
+      console.log('father vue', event)
     },
   },
   watch: {},

@@ -14,6 +14,7 @@ export default {
   },
   methods: {},
   watch: {},
+  mixins: [],
   create() {
     //网络请求
     //this.$watch监听数据
