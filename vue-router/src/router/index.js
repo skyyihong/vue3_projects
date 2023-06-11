@@ -15,7 +15,7 @@ const routes = [
       // { name: 'other', path: 'other', component: () => import('@/view/shop/components/other') },
     ],
   },
-  { name: 'notFound', path: '/:pathmatch(.*)*', component: () => import('@/view/notFound') },
+  { name: 'notFound', path: '/:pathmatch(.*)*', component: () => import('@/view/notFound') }, //pathmatch最后的*可以是链接字段分组
 ]
 
 const router = createRouter({ routes, history: createWebHistory() })
