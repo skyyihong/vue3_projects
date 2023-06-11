@@ -18,9 +18,7 @@ import { defineAsyncComponent } from 'vue'
 // import Home from './components/Home.vue'
 //通过是import('xxx')会返回一个promise对象，res结果会是import default的那个对象
 //通过使用vue提供的defineAsyncComponent 可以异步获取组件对象
-const Home = defineAsyncComponent(() => {
-  return import('./components/Home.vue')
-})
+const Home = defineAsyncComponent(() => import('./components/Home.vue'))
 
 import Page from './components/page'
 import app from '@/minix/default'
