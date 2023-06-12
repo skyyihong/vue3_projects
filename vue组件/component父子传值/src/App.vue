@@ -2,6 +2,7 @@
   app vue
   <FatherComponent class="fatherapp">
     <!-- <template v-slot:father1="props">app给father1111111的插槽内容{{ props.myage }}</template> -->
+    <!-- 以下是上面template的缩写，v-slot可以写成# -->
     <template #father1="props">app给father1111111的插槽内容{{ props.myage }}</template>
   </FatherComponent>
 </template>
