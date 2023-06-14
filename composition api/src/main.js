@@ -7,5 +7,6 @@ import { createApp } from 'vue'
 // import App from './06.标签ref属性的使用/App.vue'
 // import App from './07.生命周期函数的使用/App.vue'
 // import App from './08.provide和inject的使用,以及用ref包裹/App.vue'
-import App from './09.watch和watcheffect的使用/App.vue'
+// import App from './09.watch和watcheffect的使用/App.vue'
+import App from './10.setup语法糖用法/App.vue'
 createApp(App).mount('#app')
