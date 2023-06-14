@@ -1,33 +1,19 @@
-<template><h2>vue test component</h2></template>
+<template><h3>vue ${1:name} component</h3></template>
 
 <script>
+import { ref, reactive, computed, onMount, onUnmounted, onBeforeMount,provide,inject,watch } from 'vue'
 export default {
-  name: 'test',
+  name: '${1:name}',
   emits: [],
   props: {},
   components: {},
-  data() {
-    return {
-      name: '',
-    }
-  },
-  computed: {},
-  watch: {},
-  methods: {},
   mixins: [],
-  create() {
-    //网络请求
-    //this.watch监听数据
-    //eventbus.on的监听
-  },
-  mounted() {
-    //使用或操作dom
-  },
-  beforeupdate() {},
-  updated() {},
-  beforeumounte() {},
-  unmounted() {},
-}
+  inject:[],//可以option api注入方式
+  setup(props, context) {
+    // context.emit('emitsClick', 'name')
+    onBeforeMount(() => {})
+    return {}
+  }
 </script>
 
 <style scoped></style>

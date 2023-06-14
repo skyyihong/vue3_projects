@@ -1,5 +1,11 @@
 import { createApp } from 'vue'
 // import App from './01.ref reactive使用/App.vue'
-import App from './02.vue-router的使用/App.vue'
-
+// import App from './02.组件传值和context.emit/App.vue'
+// import App from './03.readonly_ipProxy_shallowReactive_isReadonly_isRef_isReactive_shallowReadonly/App.vue'
+// import App from './04.toRefs_toRef_triggerRef_shallowRef/App.vue'
+// import App from './05.computed的使用/App.vue'
+// import App from './06.标签ref属性的使用/App.vue'
+// import App from './07.生命周期函数的使用/App.vue'
+// import App from './08.provide和inject的使用,以及用ref包裹/App.vue'
+import App from './09.watch和watcheffect的使用/App.vue'
 createApp(App).mount('#app')
