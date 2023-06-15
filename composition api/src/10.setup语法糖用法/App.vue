@@ -3,7 +3,7 @@
     app compenont
     <!-- 子组件自己使用不用再用component注册了 -->
     <child :age="age"></child>
-    <child @changeAge="chageAge" ref="childref"></child>
+    <child @changeAge="chageAge" ref="childref" class="test"></child>
     <br />
 
     <button @click="btnClick">click</button>
@@ -11,8 +11,7 @@
 </template>
 
 <script setup>
-// import { } from 'vue';
-import { onMounted, ref, defineExpose, defineProps, defineEmits } from 'vue'
+import { onMounted, ref } from 'vue'
 import child from '@/10.setup语法糖用法/components/child.vue'
 const btnClick = () => {
   console.log('btnClick')

@@ -1,8 +1,10 @@
 <template>
-  <h2>vue chlid component</h2>
-  age:{{ age }}
+  <div>
+    <h2>vue chlid component</h2>
+    age:{{ age }}
 
-  <button @click="ChageAge">childClick</button>
+    <button @click="ChageAge">childClick</button>
+  </div>
 </template>
 
 <script setup>
