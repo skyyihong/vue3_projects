@@ -14,7 +14,7 @@
     同时对组件提高activated,deactivated方法来获取组件显示和隐藏的事件
     同时include属性可以用来指定那些需要保持keepalive，那些不需要保存keepalive可以销毁的组件
     include="Home1,Home2,Page,Page2" 字符串表示方式
-    :include="['Home1'] 数组表示方式，注意是 v-bind:include 方式.
+    :include="['Home1'] 数组表示方式，注意如果是数组表示要用 v-bind:include 方式，属性方式无法识别数组
     Home1为组件里属性name里定义的名称
      -->
     <!-- <keep-alive :include="['Home1']> -->
