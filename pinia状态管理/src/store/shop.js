@@ -8,7 +8,8 @@ const useShop = defineStore('shop', {
   getters: {},
   actions: {
     //actions相当于组件的methods，将各种函数的对store的处理放置在这个对象里面
-    async getWebContent() {
+    async getWebContent(data) {
+      console.log(data) //接受调用传过来的数据
       const ret = await axios('http://123.207.32.32:8000/home/multidata')
       return ret
     },

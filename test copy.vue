@@ -1,25 +1,24 @@
-<template>vue3 component</template>
+<template><h2>vue name component</h2></template>
 
-<script setup>
-name: '$1',
-components: {},
+<script>
 export default {
-  name: '$1',
+  name: 'name',
   emits: [],
   props: {},
   components: {},
-  computed: {},
-  data() {
-    return {
-      name: '',
-    }
+  setup() {
+    return {}
   },
-  methods: {},
+  data() {
+    return {}
+  },
+  computed: {},
   watch: {},
+  methods: {},
   mixins: [],
   create() {
     //网络请求
-    //this.$watch监听数据
+    //this.watch监听数据
     //eventbus.on的监听
   },
   mounted() {
