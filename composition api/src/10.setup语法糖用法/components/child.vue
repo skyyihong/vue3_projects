@@ -8,8 +8,13 @@
 </template>
 
 <script setup>
+/*
+defineExpose、defineProps 和 defineEmits 都是只能在 <script setup> 中使用的编译器宏。
+他们不需要导入，且会随着 <script setup> 的处理过程一同被编译掉。
+*/
+
 defineProps({
-  //无需import进来，只有使用这个函数来定义需要接受的props
+  //无需import进来，只需使用这个函数来定义需要接受的props
   age: {
     type: Number,
     default: 20,
