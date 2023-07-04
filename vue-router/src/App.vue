@@ -34,6 +34,7 @@ function routerHomeClick() {
 }
 function removeOther() {
   router.removeRoute('other') //删除动态路由时传入 对应路由的name即可
+  // otherRoute() //或者直接调用添加路由返回的对象实例，执行的实例就可以删除已添加的路由组件
 }
 
 onMounted(() => {

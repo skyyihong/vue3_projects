@@ -8,8 +8,8 @@ const route = useRoute()
 
 onMounted(() => {
   // console.log(Router)
-  console.log(route.params)
-  console.log(route.query)
+  console.log('page:', route.params)
+  console.log('page:', route.query)
 })
 </script>
 

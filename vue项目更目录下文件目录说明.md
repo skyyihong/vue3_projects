@@ -5,4 +5,5 @@
 + package-lock.json package.json npm包关联文件
 + src目录 整个vue项目的源代码，main.js 是webpack的入口文件
 + disc目录 项目打包编译后的目录
++ public目录 我们网站使用的今天文件位置
 

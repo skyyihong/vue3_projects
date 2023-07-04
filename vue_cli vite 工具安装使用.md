@@ -1,4 +1,4 @@
-### 一 安装方式1
+### 一 安装方式1(webpack)
 1. 安装vue/cli工具在全局
 `
 npm install @vue/cli -g
@@ -13,7 +13,7 @@ vue create 项目名称
 npm run serve
 `
 
-### 二 安装方式二
+### 二 安装方式2(vite)
 1. 安装create-vue包
    `npm init vue@latest -y`
 2. create-vue工具会有向导创建vue项目
