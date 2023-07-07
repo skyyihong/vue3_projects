@@ -11,8 +11,9 @@ export default createStore({
     }
   },
   mutations: {
-    incremnet(state, step) {
-      state.counter = state.counter + step
+    incremnet(state, paylaod) {
+      //payload为传递的参数
+      state.counter = state.counter + paylaod
     },
   },
   getters: {
@@ -29,6 +30,22 @@ export default createStore({
       return (num) => {
         return state.counter + num
       }
+    },
+  },
+  actions: {
+    fetchDate(context, payload) {
+      //context是一个用createStore 创建的实例拥有一样方法,payload为函数传递的参数
+      setTimeout(() => {
+        context.commit('incremnet', payload)
+      }, 1000)
+    },
+    getFinishInfo(context, payload) {
+      return new Promise((res) => {
+        setTimeout(() => {
+          context.commit('incremnet', payload)
+          res('ok')
+        }, 2000)
+      })
     },
   },
 })

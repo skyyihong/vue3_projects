@@ -23,7 +23,7 @@ import { ref, toRefs, computed } from 'vue'
 import { useStore, mapGetters } from 'vuex'
 import setupMapGetters from '@/hook/setupMapGetters'
 const store = useStore()
-const { doubleCounter1, incremnetNum } = toRefs(store.getters) //1.使用reRef获取getter
+const { doubleCounter1, incremnetNum } = toRefs(store.getters) //1.使用reRef获取getter,可以使用，但vue会报错误提示
 
 const { tripleCounter: tripleCounterFn } = mapGetters(['tripleCounter']) //2.使用mapGetters来获取内容
 const tripleCounter = computed(tripleCounterFn.bind({ $store: store }))
