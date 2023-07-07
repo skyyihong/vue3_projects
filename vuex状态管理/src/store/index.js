@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import userModule from './modules/user'
 
 export default createStore({
   state() {
@@ -31,6 +32,8 @@ export default createStore({
         return state.counter + num
       }
     },
+    //全局快捷方式获取其他模块数据的方法
+    userMoney: (state) => state.user.money,
   },
   actions: {
     fetchDate(context, payload) {
@@ -47,5 +50,9 @@ export default createStore({
         }, 2000)
       })
     },
+  },
+
+  modules: {
+    user: userModule,
   },
 })
